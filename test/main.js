@@ -1,43 +1,43 @@
 /*global describe, it*/
-"use strict";
+'use strict';
 
-var fs = require("fs"),
-	es = require("event-stream"),
-	should = require("should");
+var fs = require('fs'),
+	es = require('event-stream'),
+	should = require('should');
 
-require("mocha");
+require('mocha');
 
-delete require.cache[require.resolve("../")];
+delete require.cache[require.resolve('../')];
 
-var gutil = require("gulp-util"),
-	cachebust = require("../");
+var gutil = require('gulp-util'),
+	cachebust = require('../');
 
-describe("gulp-cachebust", function () {
+describe('gulp-cache-bust', function () {
 
 	var expectedFile = new gutil.File({
-		path: "test/expected/hello.txt",
-		cwd: "test/",
-		base: "test/expected",
-		contents: fs.readFileSync("test/expected/hello.txt")
+		path: 'test/expected/default_options.html',
+		cwd: 'test/',
+		base: 'test/expected',
+		contents: fs.readFileSync('test/expected/default_options.html')
 	});
 
-	it("should produce expected file via buffer", function (done) {
+	it('should produce expected file via buffer', function (done) {
 
 		var srcFile = new gutil.File({
-			path: "test/fixtures/hello.txt",
-			cwd: "test/",
-			base: "test/fixtures",
-			contents: fs.readFileSync("test/fixtures/hello.txt")
+			path: 'test/fixtures/default_options.html',
+			cwd: 'test/',
+			base: 'test/fixtures',
+			contents: fs.readFileSync('test/fixtures/default_options.html')
 		});
 
-		var stream = cachebust("World");
+		var stream = cachebust();
 
-		stream.on("error", function(err) {
+		stream.on('error', function(err) {
 			should.exist(err);
 			done(err);
 		});
 
-		stream.on("data", function (newFile) {
+		stream.on('data', function (newFile) {
 
 			should.exist(newFile);
 			should.exist(newFile.contents);
@@ -50,23 +50,22 @@ describe("gulp-cachebust", function () {
 		stream.end();
 	});
 
-	it("should error on stream", function (done) {
-
+	it('should error on stream', function (done) {
 		var srcFile = new gutil.File({
-			path: "test/fixtures/hello.txt",
-			cwd: "test/",
-			base: "test/fixtures",
-			contents: fs.createReadStream("test/fixtures/hello.txt")
+			path: 'test/fixtures/default_options.html',
+			cwd: 'test/',
+			base: 'test/fixtures',
+			contents: fs.createReadStream('test/fixtures/default_options.html')
 		});
 
-		var stream = cachebust("World");
+		var stream = cachebust();
 
-		stream.on("error", function(err) {
+		stream.on('error', function(err) {
 			should.exist(err);
 			done();
 		});
 
-		stream.on("data", function (newFile) {
+		stream.on('data', function (newFile) {
 			newFile.contents.pipe(es.wait(function(err, data) {
 				done(err);
 			}));
@@ -75,38 +74,4 @@ describe("gulp-cachebust", function () {
 		stream.write(srcFile);
 		stream.end();
 	});
-
-	/*
-	it("should produce expected file via stream", function (done) {
-
-		var srcFile = new gutil.File({
-			path: "test/fixtures/hello.txt",
-			cwd: "test/",
-			base: "test/fixtures",
-			contents: fs.createReadStream("test/fixtures/hello.txt")
-		});
-
-		var stream = cachebust("World");
-
-		stream.on("error", function(err) {
-			should.exist(err);
-			done();
-		});
-
-		stream.on("data", function (newFile) {
-
-			should.exist(newFile);
-			should.exist(newFile.contents);
-
-			newFile.contents.pipe(es.wait(function(err, data) {
-				should.not.exist(err);
-				data.should.equal(String(expectedFile.contents));
-				done();
-			}));
-		});
-
-		stream.write(srcFile);
-		stream.end();
-	});
-	*/
 });
