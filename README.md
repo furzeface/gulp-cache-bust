@@ -1,4 +1,4 @@
-# gulp-cachebust
+# gulp-cache-bust
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]  [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency Status][depstat-image]][depstat-url]
 
 > cachebust plugin for [gulp](https://github.com/wearefractal/gulp)
@@ -36,10 +36,10 @@ Copyright (c) 2014 Daniel Furze.
 Licensed under the MIT license: [http://danielfurze.mit-license.org](http://danielfurze.mit-license.org)
 
 [npm-url]: https://npmjs.org/package/gulp-cache-bust
-[npm-image]: https://badge.fury.io/js/gulp-cache-bust.png
+[npm-image]: https://badge.fury.io/js/gulp-cache-bust.svg
 [travis-url]: http://travis-ci.org/furzeface/gulp-cache-bust
-[travis-image]: https://secure.travis-ci.org/furzeface/gulp-cache-bust.png?branch=master
+[travis-image]: https://secure.travis-ci.org/furzeface/gulp-cache-bust.svg?branch=master
 [coveralls-url]: https://coveralls.io/r/furzeface/gulp-cache-bust
 [coveralls-image]: https://coveralls.io/repos/furzeface/gulp-cache-bust/badge.png
 [depstat-url]: https://david-dm.org/furzeface/gulp-cache-bust
-[depstat-image]: https://david-dm.org/furzeface/gulp-cache-bust.png
+[depstat-image]: https://david-dm.org/furzeface/gulp-cache-bust.svg
