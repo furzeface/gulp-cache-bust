@@ -11,13 +11,13 @@ npm install --save-dev gulp-cachebust
 
 Then, add it to your `gulpfile.js`:
 ```js
-var cachebust = require("gulp-cachebust");
+var cachebust = require('gulp-cachebust');
 
-gulp.src("./src/*.ext")
+gulp.src('./dist/*/*.html')
 	.pipe(cachebust({
-		msg: "Hello Gulp!"
+		type: 'timestamp'
 	}))
-	.pipe(gulp.dest("./dist"));
+	.pipe(gulp.dest('./dist');
 ```
 
 ## API
@@ -26,7 +26,7 @@ gulp.src("./src/*.ext")
 
 #### options.type
 Type: `String`  
-Default: `MD5`
+Default: `MD5`	
 
 The time of query string you want appended to your asset URLs.
 

@@ -8,8 +8,10 @@
  // This plugin's task
  gulp.task('cachebust', function () {
  	return gulp.src('test/fixtures/**/*.html')
- 	.pipe(cachebust({type: 'timestamp'}))
- 	.pipe(gulp.dest('tmp'));
+ 	.pipe(cachebust({
+ 		type: 'MD5'
+ 	}))
+ 	.pipe(gulp.dest('./tmp'));
  });
 
 // Default task does all of the things

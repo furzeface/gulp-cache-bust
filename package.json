@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "cachebust": "latest",
-    "gulp-util": "~2.2.0",
+    "gulp-util": "3.0.1",
     "map-stream": "0.0.5",
     "temp-write": "^1.1.0",
-    "through2": "*"
+    "through2": "0.6.3"
   },
   "devDependencies": {
     "coveralls": "*",
