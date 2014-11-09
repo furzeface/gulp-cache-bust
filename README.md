@@ -4,14 +4,14 @@
 > cachebust plugin for [gulp](https://github.com/wearefractal/gulp)
 
 ## Usage
-First, install `gulp-cachebust` as a development dependency:
+First, install `gulp-cache-bust` as a development dependency:
 ```sh
-npm install --save-dev gulp-cachebust
+npm install --save-dev gulp-cache-bust
 ```
 
 Then, add it to your `gulpfile.js`:
 ```js
-var cachebust = require('gulp-cachebust');
+var cachebust = require('gulp-cache-bust');
 
 gulp.src('./dist/*/*.html')
 	.pipe(cachebust({
@@ -22,7 +22,7 @@ gulp.src('./dist/*/*.html')
 
 ## API
 
-### cachebust(options)
+### cache-bust(options)
 
 #### options.type
 Type: `String`  
@@ -35,11 +35,11 @@ Copyright (c) 2014 Daniel Furze.
 
 Licensed under the MIT license: [http://danielfurze.mit-license.org](http://danielfurze.mit-license.org)
 
-[npm-url]: https://npmjs.org/package/gulp-cachebust
-[npm-image]: https://badge.fury.io/js/gulp-cachebust.png
-[travis-url]: http://travis-ci.org/furzeface/gulp-cachebust
-[travis-image]: https://secure.travis-ci.org/furzeface/gulp-cachebust.png?branch=master
-[coveralls-url]: https://coveralls.io/r/furzeface/gulp-cachebust
-[coveralls-image]: https://coveralls.io/repos/furzeface/gulp-cachebust/badge.png
-[depstat-url]: https://david-dm.org/furzeface/gulp-cachebust
-[depstat-image]: https://david-dm.org/furzeface/gulp-cachebust.png
+[npm-url]: https://npmjs.org/package/gulp-cache-bust
+[npm-image]: https://badge.fury.io/js/gulp-cache-bust.png
+[travis-url]: http://travis-ci.org/furzeface/gulp-cache-bust
+[travis-image]: https://secure.travis-ci.org/furzeface/gulp-cache-bust.png?branch=master
+[coveralls-url]: https://coveralls.io/r/furzeface/gulp-cache-bust
+[coveralls-image]: https://coveralls.io/repos/furzeface/gulp-cache-bust/badge.png
+[depstat-url]: https://david-dm.org/furzeface/gulp-cache-bust
+[depstat-image]: https://david-dm.org/furzeface/gulp-cache-bust.png
