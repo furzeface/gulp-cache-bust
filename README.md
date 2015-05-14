@@ -17,7 +17,7 @@ gulp.src('./dist/*/*.html')
 	.pipe(cachebust({
 		type: 'timestamp'
 	}))
-	.pipe(gulp.dest('./dist');
+	.pipe(gulp.dest('./dist'));
 ```
 
 ## API
