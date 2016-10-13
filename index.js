@@ -24,8 +24,8 @@ module.exports = function (options) {
 		}
 
 		tempWrite(file.contents, path.extname(file.path))
-		.then(function (tempFile) {
-			if (!tempFile) {
+		.then(function (tempFile, err) {
+			if (err) {
 				return cb(new gutil.PluginError('gulp-cachebust', err));
 			}
 
