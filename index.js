@@ -22,8 +22,10 @@ module.exports = function (options) {
 		if(!options.basePath){
 			options.basePath = path.dirname(path.resolve(file.path))+'/';
 		}
-		tempWrite(file.contents, path.extname(file.path), function (err, tempFile) {
-			if (err) {
+
+		tempWrite(file.contents, path.extname(file.path))
+		.then(function (tempFile) {
+			if (!tempFile) {
 				return cb(new gutil.PluginError('gulp-cachebust', err));
 			}
 
