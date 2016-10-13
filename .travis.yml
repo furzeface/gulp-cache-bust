@@ -1,4 +1,6 @@
 language: node_js
+npm:
+  - '3.10.3'
 node_js:
   - '4.5.0'
 after_script:
