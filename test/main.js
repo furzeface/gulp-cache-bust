@@ -29,7 +29,6 @@ describe('gulp-cache-bust', function () {
 			base: 'test/fixtures',
 			contents: fs.readFileSync('test/fixtures/default_options.html')
 		});
-
 		var stream = cachebust();
 
 		stream.on('error', function(err) {

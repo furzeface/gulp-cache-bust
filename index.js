@@ -8,6 +8,9 @@ tempWrite = require('temp-write'),
 cachebust = require('cachebust');
 
 module.exports = function (options) {
+	if(!options){
+		options = {};
+	}
 	return map(function (file, cb) {
 		if (file.isNull()) {
 			return cb(null, file);
@@ -16,8 +19,12 @@ module.exports = function (options) {
 		if (file.isStream()) {
 			return cb(new gutil.PluginError('gulp-cachebust', 'Streaming not supported'));
 		}
+		if(!options.basePath){
+			options.basePath = path.dirname(path.resolve(file.path))+'/';
+		}
 
-		tempWrite(file.contents, path.extname(file.path), function (err, tempFile) {
+		tempWrite(file.contents, path.extname(file.path))
+		.then(function (tempFile, err) {
 			if (err) {
 				return cb(new gutil.PluginError('gulp-cachebust', err));
 			}
@@ -26,7 +33,6 @@ module.exports = function (options) {
 				if (err) {
 					return cb(new gutil.PluginError('gulp-cachebust', err));
 				}
-
 				options = options || {};
 
 				fs.readFile(tempFile, { encoding : 'UTF-8'}, function(err, data) {
