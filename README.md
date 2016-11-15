@@ -30,6 +30,12 @@ Default: `MD5`
 
 The time of query string you want appended to your asset URLs.
 
+#### options.basePath
+Type: `String`
+Default: ''
+
+Path to find File in case you chose the MD5 Type of cache-busting.
+
 ## License
 Copyright (c) 2014 Daniel Furze. 
 
