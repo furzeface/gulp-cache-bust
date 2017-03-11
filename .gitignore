@@ -13,3 +13,4 @@ node_modules
 # Generated files
 tmp
 coverage
+.idea
