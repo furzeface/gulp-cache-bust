@@ -1,45 +1,45 @@
 {
-	"name": "gulp-cache-bust",
-	"version": "1.1.0",
-	"description": "Append a query string to your assets to bust that cache!",
-	"keywords": [
-		"assets",
-		"cache",
-		"cachebust",
-		"gulpplugin",
-		"MD5",
-		"timestamp"
-	],
-	"author": {
-		"name": "Daniel Furze",
-		"email": "daniel@furzeface.com",
-		"url": "https://github.com/furzeface"
-	},
-	"repository": "https://github.com/furzeface/gulp-cache-bust",
-	"scripts": {
-		"test": "istanbul test _mocha --report html -- test/*.js --reporter spec",
-		"coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
-	},
-	"dependencies": {
-		"cachebust": "2.3.0",
-		"graceful-fs": "^4.1.9",
-		"gulp-util": "3.0.7",
-		"map-stream": "^0.1.0",
-		"temp-write": "^2.1.0",
-		"through2": "2.0.1"
-	},
-	"devDependencies": {
-		"coveralls": "*",
-		"event-stream": "*",
-		"gulp": "^3.8.8",
-		"istanbul": "*",
-		"mocha": "*",
-		"mocha-lcov-reporter": "*",
-		"should": "~11.1.1"
-	},
-	"engines": {
-		"node": ">=4.4.5",
-    	"npm": ">=2.15.1"
-	},
-	"license": "MIT"
+  "name": "gulp-cache-bust",
+  "version": "1.2.0",
+  "description": "Append a query string to your assets to bust that cache!",
+  "keywords": [
+    "assets",
+    "cache",
+    "cachebust",
+    "gulpplugin",
+    "MD5",
+    "timestamp"
+  ],
+  "author": {
+    "name": "Daniel Furze",
+    "email": "daniel@furzeface.com",
+    "url": "https://github.com/furzeface"
+  },
+  "repository": "https://github.com/furzeface/gulp-cache-bust",
+  "scripts": {
+    "test": "istanbul test _mocha --report html -- test/*.js --reporter spec",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "dependencies": {
+    "cachebust": "2.3.0",
+    "graceful-fs": "^4.1.9",
+    "gulp-util": "3.0.7",
+    "map-stream": "^0.1.0",
+    "temp-write": "^2.1.0",
+    "through2": "2.0.1"
+  },
+  "devDependencies": {
+    "coveralls": "*",
+    "event-stream": "*",
+    "gulp": "^3.8.8",
+    "istanbul": "*",
+    "mocha": "*",
+    "mocha-lcov-reporter": "*",
+    "should": "~11.1.1"
+  },
+  "engines": {
+    "node": ">=4.4.5",
+    "npm": ">=2.15.1"
+  },
+  "license": "MIT"
 }
