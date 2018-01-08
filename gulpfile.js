@@ -1,6 +1,5 @@
  // Require Gulp
- var gulp = require('gulp'),
- gutil = require('gulp-util');
+ var gulp = require('gulp');
 
  // Require tasks
  var cachebust = require('./index');
