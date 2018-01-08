@@ -1,11 +1,13 @@
 'use strict';
 
 var path = require('path'),
-fs = require('graceful-fs'),
-gutil = require('gulp-util'),
-map = require('map-stream'),
-tempWrite = require('temp-write'),
-cachebust = require('cachebust');
+	colors = require('ansi-colors'),
+	fs = require('graceful-fs'),
+	flog = require('fancy-log'),
+	map = require('map-stream'),
+	tempWrite = require('temp-write'),
+	cachebust = require('cachebust'),
+	PluginError = require('plugin-error');
 
 module.exports = function (options) {
 	if(!options){
@@ -17,8 +19,9 @@ module.exports = function (options) {
 		}
 
 		if (file.isStream()) {
-			return cb(new gutil.PluginError('gulp-cachebust', 'Streaming not supported'));
+			return cb(new PluginError('gulp-cachebust', 'Streaming not supported'));
 		}
+
 		if(!options.basePath){
 			options.basePath = path.dirname(path.resolve(file.path))+'/';
 		}
@@ -26,32 +29,31 @@ module.exports = function (options) {
 		tempWrite(file.contents, path.extname(file.path))
 		.then(function (tempFile, err) {
 			if (err) {
-				return cb(new gutil.PluginError('gulp-cachebust', err));
+				return cb(new PluginError('gulp-cachebust', err));
 			}
 
 			fs.stat(tempFile, function (err, stats) {
 				if (err) {
-					return cb(new gutil.PluginError('gulp-cachebust', err));
+					return cb(new PluginError('gulp-cachebust', err));
 				}
 				options = options || {};
 
 				fs.readFile(tempFile, { encoding : 'UTF-8'}, function(err, data) {
 					if (err) {
-						return cb(new gutil.PluginError('gulp-cachebust', err));
+						return cb(new PluginError('gulp-cachebust', err));
 					}
 
 					// Call the Node module
 					var processedContents = cachebust.busted(data, options);
 
 					if (options.showLog) {
-						gutil.log('gulp-cachebust:', gutil.colors.green('✔ ') + file.relative);
+						flog('gulp-cachebust:', colors.green('✔ ') + file.relative);
 					}
 
 					file.contents = new Buffer(processedContents);
 
 					cb(null, file);
 				});
-
 			});
 		});
 	});
