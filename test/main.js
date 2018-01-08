@@ -9,12 +9,12 @@ require('mocha');
 
 delete require.cache[require.resolve('../')];
 
-var gutil = require('gulp-util'),
-	cachebust = require('../');
+var cachebust = require('../'),
+	Vinyl = require('vinyl');
 
 describe('gulp-cache-bust', function () {
 
-	var expectedFile = new gutil.File({
+	var expectedFile = new Vinyl({
 		path: 'test/expected/default_options.html',
 		cwd: 'test/',
 		base: 'test/expected',
@@ -23,7 +23,7 @@ describe('gulp-cache-bust', function () {
 
 	it('should produce expected file via buffer', function (done) {
 
-		var srcFile = new gutil.File({
+		var srcFile = new Vinyl({
 			path: 'test/fixtures/default_options.html',
 			cwd: 'test/',
 			base: 'test/fixtures',
@@ -50,7 +50,7 @@ describe('gulp-cache-bust', function () {
 	});
 
 	it('should error on stream', function (done) {
-		var srcFile = new gutil.File({
+		var srcFile = new Vinyl({
 			path: 'test/fixtures/default_options.html',
 			cwd: 'test/',
 			base: 'test/fixtures',
