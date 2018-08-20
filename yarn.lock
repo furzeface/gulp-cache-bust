@@ -239,9 +239,9 @@ cache-base@^1.0.1:
     union-value "^1.0.0"
     unset-value "^1.0.0"
 
-cachebust@2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/cachebust/-/cachebust-2.3.0.tgz#d9b050194d847c3c12662c5dc1a0db2b59bd7296"
+cachebust@2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/cachebust/-/cachebust-2.4.0.tgz#748568bfb471eed9246ae21b9ff5ed37ef78bb65"
   dependencies:
     cheerio "^0.19.0"
     md5 "^2.0.0"
