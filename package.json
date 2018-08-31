@@ -41,7 +41,7 @@
     "should": "~11.1.1"
   },
   "engines": {
-    "node": ">=4.4.5",
+    "node": ">=6",
     "npm": ">=2.15.1"
   },
   "license": "MIT"
