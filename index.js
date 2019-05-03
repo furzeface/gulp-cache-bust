@@ -23,7 +23,7 @@ module.exports = function (options) {
 		}
 
 		var resolveBasePath = function(filePath) {
-			return path.dirname(path.resolve(filePath))+'/';
+			return path.join(path.dirname(path.resolve(filePath)), '/');
 		};
 
 		if(!options.basePath && !options.resolveBasePathForEveryFile){
