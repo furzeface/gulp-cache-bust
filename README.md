@@ -36,6 +36,12 @@ Default: ''
 
 Path to find File in case you chose the MD5 Type of cache-busting.
 
+#### options.resolveBasePathForEveryFile
+Type: `Boolean`  
+Default: `undefined`
+
+If true, will override `options.basePath` and will set the `basePath` for every file based on each individual file's path. Useful when using relative paths. 
+
 ## License
 Copyright (c) 2014 Daniel Furze. 
 

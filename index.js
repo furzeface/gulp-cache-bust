@@ -22,14 +22,22 @@ module.exports = function (options) {
 			return cb(new PluginError('gulp-cachebust', 'Streaming not supported'));
 		}
 
-		if(!options.basePath){
-			options.basePath = path.dirname(path.resolve(file.path))+'/';
+		var resolveBasePath = function(filePath) {
+			return path.join(path.dirname(path.resolve(filePath)), '/');
+		};
+
+		if(!options.basePath && !options.resolveBasePathForEveryFile){
+			options.basePath = resolveBasePath(file.path);
 		}
 
 		tempWrite(file.contents, path.extname(file.path))
 		.then(function (tempFile, err) {
 			if (err) {
 				return cb(new PluginError('gulp-cachebust', err));
+			}
+
+			if (options.resolveBasePathForEveryFile) {
+				options.basePath = resolveBasePath(file.path);
 			}
 
 			fs.stat(tempFile, function (err, stats) {
